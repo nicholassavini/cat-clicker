@@ -5,8 +5,11 @@ $(document).ready(function () {
     var kittens = ['Chester', 'Fluffernutter'];
 
     $.each(kittens, function(index) {
-        $kittenElem.append('<img src="img/' + kittens[index] +
-                           '.jpg" class="img-responsive col-md-3" id="kitten">');
+        $kittenElem.append('<div class="col-md-3">' + '<h3>'
+                            + kittens[index] + '</h3>' + '<img src="img/'
+                            + kittens[index]
+                            + '.jpg" class="img-responsive" id="kitten">'
+                            + '</div>');
     });
 
 
