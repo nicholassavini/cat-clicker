@@ -16,9 +16,11 @@ $(document).ready(function () {
 
     // increment click count
     var counter = 0;
-    $('img').click(function() {
+    $('img').click(function(e) {
+        var kittenCount = '#' + e.target.id.toString() + 'Count';
+        var counter = $(kittenCount).text();
         counter++;
-        $('#number').html(counter);
+        $(kittenCount).html(counter);
     });
     return false;
 });
