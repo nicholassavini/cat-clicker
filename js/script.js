@@ -5,13 +5,14 @@ $(document).ready(function () {
     var kittens = ['Chester', 'Fluffernutter'];
 
     $.each(kittens, function(index) {
-        $kittenElem.append('<div class="col-md-3">' + '<h3>'
-                            + kittens[index] + '</h3>' + '<img src="img/'
-                            + kittens[index]
-                            + '.jpg" class="img-responsive" id="kitten">'
+        kitten = kittens[index]
+        $kittenElem.append('<div class="col-md-3">' + '<h2>'
+                            + kitten + '</h2>' + '<img src="img/' + kitten
+                            + '.jpg" class="img-responsive" id="' + kitten
+                            + '">' + "<h3>" + kitten + ' has been clicked <span id="'
+                            + kitten + 'Count">0</span> times.</h3>'
                             + '</div>');
     });
-
 
     // increment click count
     var counter = 0;
