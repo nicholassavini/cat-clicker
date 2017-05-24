@@ -17,10 +17,10 @@ $(document).ready(function () {
     // increment click count
     var counter = 0;
     $('img').click(function(e) {
-        var kittenCount = '#' + e.target.id.toString() + 'Count';
-        var counter = $(kittenCount).text();
-        counter++;
-        $(kittenCount).html(counter);
+        var kittenCounter = '#' + e.target.id.toString() + 'Count';
+        var count = $(kittenCounter).text();
+        count++;
+        $(kittenCounter).html(count);
     });
     return false;
 });
