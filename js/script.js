@@ -2,16 +2,21 @@ $(document).ready(function () {
     // generate kittens
     var $kittenElem = $('#kittens');
 
-    var kittens = ['Chester', 'Fluffernutter'];
-
+    var kittens = [
+        {name: 'Chester', image: 'img/Chester.jpg', clicks: 0},
+        {name: 'Fluffernutter', image: 'img/Fluffernutter.jpg', clicks: 0},
+        {name: 'Marsha', image: 'img/Marsha.jpg', clicks: 0},
+        {name: 'Scruffy', image: 'img/Scruffy.jpg', clicks: 0},
+        {name: 'Sherbert', image: 'img/Sherbert.jpg', clicks: 0}
+    ];
     $.each(kittens, function(index) {
         kitten = kittens[index]
         $kittenElem.append('<div class="col-md-3">' + '<h2>'
-                            + kitten + '</h2>' + '<img src="img/' + kitten
-                            + '.jpg" class="img-responsive" id="' + kitten
-                            + '">' + "<h3>" + kitten + ' has been clicked <span id="'
-                            + kitten + 'Count">0</span> times.</h3>'
-                            + '</div>');
+                            + kitten.name + '</h2>' + '<img src="'
+                            + kitten.image + '" class="img-responsive" id="'
+                            + kitten.name + '">' + "<h3>" + kitten.name
+                            + ' has been clicked <span id="' + kitten.name
+                            + 'Count">0</span> times.</h3>' + '</div>');
     });
 
     // increment click count
