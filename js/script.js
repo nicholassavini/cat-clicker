@@ -15,18 +15,18 @@ $(document).ready(function () {
     // generate the sidebar list with the kittens
     $.each(kittens, function(index) {
         kitten = kittens[index];
-        $kittenList.append('<a class="list-group-item" id="' + index + '">'
-                            + kitten.name + '</a>');
+        $kittenList.append('<button class="btn btn-default" type="button" id="'
+                            + index + '">' + kitten.name + '</button>');
     });
-    $('a').click(function(e) {
+    $('button').click(function(e) {
         var index = e.target.id.toString();
         kitten = kittens[index];
-        $kittenElem.append('<div class="col-md-3">' + '<h2>'
+        $kittenElem.append('<h2>'
                             + kitten.name + '</h2>' + '<img src="'
                             + kitten.image + '" class="img-responsive" id="'
                             + kitten.name + '">' + "<h3>" + kitten.name
                             + ' has been clicked <span id="' + kitten.name
-                            + 'Count">0</span> times.</h3>' + '</div>');
+                            + 'Count">0</span> times.</h3>');
     });
 
     // increment click count
