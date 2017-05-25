@@ -1,7 +1,9 @@
 $(document).ready(function () {
     // generate kittens
     var $kittenElem = $('#kittens');
+    var $kittenList = $('#kittenList')
 
+    // information for all the kittens
     var kittens = [
         {name: 'Chester', image: 'img/Chester.jpg', clicks: 0},
         {name: 'Fluffernutter', image: 'img/Fluffernutter.jpg', clicks: 0},
@@ -9,8 +11,16 @@ $(document).ready(function () {
         {name: 'Scruffy', image: 'img/Scruffy.jpg', clicks: 0},
         {name: 'Sherbert', image: 'img/Sherbert.jpg', clicks: 0}
     ];
+
+    // generate the sidebar list with the kittens
     $.each(kittens, function(index) {
-        kitten = kittens[index]
+        kitten = kittens[index];
+        $kittenList.append('<a class="list-group-item" id="' + index + '">'
+                            + kitten.name + '</a>');
+    });
+    $('a').click(function(e) {
+        var index = e.target.id.toString();
+        kitten = kittens[index];
         $kittenElem.append('<div class="col-md-3">' + '<h2>'
                             + kitten.name + '</h2>' + '<img src="'
                             + kitten.image + '" class="img-responsive" id="'
