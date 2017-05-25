@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // generate kittens
+    // get kitten elements
     var $kittenElem = $('#kittens');
     var $kittenList = $('#kittenList')
 
@@ -18,24 +18,28 @@ $(document).ready(function () {
         $kittenList.append('<button class="btn btn-default" type="button" id="'
                             + index + '">' + kitten.name + '</button>');
     });
+
+    // generate the selected kiitten
     $('button').click(function(e) {
+        $kittenElem.empty();
         var index = e.target.id.toString();
         kitten = kittens[index];
         $kittenElem.append('<h2>'
                             + kitten.name + '</h2>' + '<img src="'
                             + kitten.image + '" class="img-responsive" id="'
-                            + kitten.name + '">' + "<h3>" + kitten.name
-                            + ' has been clicked <span id="' + kitten.name
-                            + 'Count">0</span> times.</h3>');
+                            + index + '">' + "<h3>" + kitten.name
+                            + ' has been clicked <span id="' + index + 'Count">'
+                            + kitten.clicks + '</span> times.</h3>');
     });
 
     // increment click count
-    var counter = 0;
-    $('img').click(function(e) {
-        var kittenCounter = '#' + e.target.id.toString() + 'Count';
-        var count = $(kittenCounter).text();
-        count++;
-        $(kittenCounter).html(count);
+    $('body').delegate("img", "click", function(e) {
+        var kittenNum = e.target.id.toString();
+        kittens[kittenNum].clicks++
+        var currentCount = kittens[kittenNum].clicks
+        var kittenCounter = '#' + kittenNum + 'Count';
+        console.log(kittenCounter);
+        $(kittenCounter).html(currentCount);
     });
     return false;
 });
