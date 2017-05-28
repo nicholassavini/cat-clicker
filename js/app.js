@@ -10,13 +10,19 @@ $(function() {
     };
 
     var octopus {
+        getAllKittens: function() {
+            return model.kittens
+        },
         getKitten: function(index) {
             return kittens[index];
         }
     };
 
     var listView {
-
+        render: function() {
+            $.each(getAllKittens(), function(index) {
+            $('#kittenList').append('<button class="btn btn-default" type="button" id="'
+                + index + '">' + getKitten.name + '</button>');
     };
 
     var catView {
