@@ -10,7 +10,9 @@ $(function() {
     };
 
     var octopus {
-
+        getKitten: function(index) {
+            return kittens[index];
+        }
     };
 
     var listView {
