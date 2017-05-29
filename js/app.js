@@ -1,31 +1,37 @@
 $(function() {
     var model = {
-        kittens = [
+        kittens: [
             {name: 'Chester', image: 'img/Chester.jpg', clicks: 0},
             {name: 'Fluffernutter', image: 'img/Fluffernutter.jpg', clicks: 0},
             {name: 'Marsha', image: 'img/Marsha.jpg', clicks: 0},
             {name: 'Scruffy', image: 'img/Scruffy.jpg', clicks: 0},
             {name: 'Sherbert', image: 'img/Sherbert.jpg', clicks: 0}
-        ];
+        ]
     };
 
-    var octopus {
+    var octopus = {
+        init: function() {
+            listView.render();
+        },
         getAllKittens: function() {
             return model.kittens
         },
-        getKitten: function(index) {
-            return kittens[index];
+        getKitten: function(number) {
+            return model.kittens[number];
         }
     };
 
-    var listView {
+    var listView = {
         render: function() {
-            $.each(getAllKittens(), function(index) {
-            $('#kittenList').append('<button class="btn btn-default" type="button" id="'
-                + index + '">' + getKitten.name + '</button>');
-    };
+            $.each(octopus.getAllKittens(), function(index) {
+                $('#kittenList').append('<button class="btn btn-default" type="button" id="'
+                + index + '">' + octopus.getKitten(index).name + '</button>');
+            });
+        }
+    }
 
-    var catView {
+    var catView = {
 
     }
+    octopus.init();
 })
