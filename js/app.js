@@ -23,7 +23,7 @@ $(function() {
         },
         addKitten: function(e) {
                 var kittenNum = e.target.id.toString();
-                var allKittens = octopus.getAllKittens()
+                var allKittens = this.getAllKittens()
                 allKittens[kittenNum].clicks++;
                 var currentCount = allKittens[kittenNum].clicks
                 $('#' + kittenNum + 'Count').html(currentCount);
@@ -33,7 +33,7 @@ $(function() {
 
     var listView = {
         init: function() {
-            listView.render();
+            this.render();
         },
         render: function() {
             $.each(octopus.getAllKittens(), function(index) {
@@ -50,7 +50,7 @@ $(function() {
                 octopus.addKitten(e);
             });
 
-            catView.render();
+            this.render();
         },
         render: function() {
             $('button').click(function(e) {
