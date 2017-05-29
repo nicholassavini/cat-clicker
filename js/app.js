@@ -9,9 +9,11 @@ $(function() {
         ]
     };
 
+
     var octopus = {
         init: function() {
-            listView.render();
+            listView.init();
+            catView.init();
         },
         getAllKittens: function() {
             return model.kittens
@@ -21,7 +23,11 @@ $(function() {
         }
     };
 
+
     var listView = {
+        init: function() {
+            listView.render();
+        },
         render: function() {
             $.each(octopus.getAllKittens(), function(index) {
                 $('#kittenList').append('<button class="btn btn-default" type="button" id="'
@@ -30,8 +36,23 @@ $(function() {
         }
     }
 
-    var catView = {
 
+    var catView = {
+        init: function() {
+            catView.render();
+        },
+        render: function() {
+            $('button').click(function(e) {
+                var kittenNum = e.target.id.toString();
+                var kitten = octopus.getKitten(kittenNum);
+                $('#kittens').html('<h2>' + kitten.name + '</h2>' + '<img src="'
+                                    + kitten.image + '" class="img-responsive" id="'
+                                    + kittenNum + '">' + "<h3>" + kitten.name
+                                    + ' has been clicked <span id="' + kittenNum
+                                    + 'Count">' + kitten.clicks
+                                        + '</span> times.</h3>');
+            });
+        }
     }
     octopus.init();
 })
