@@ -20,6 +20,13 @@ $(function() {
         },
         getKitten: function(number) {
             return model.kittens[number];
+        },
+        addKitten: function(e) {
+                var kittenNum = e.target.id.toString();
+                var allKittens = octopus.getAllKittens()
+                allKittens[kittenNum].clicks++;
+                var currentCount = allKittens[kittenNum].clicks
+                $('#' + kittenNum + 'Count').html(currentCount);
         }
     };
 
@@ -39,6 +46,10 @@ $(function() {
 
     var catView = {
         init: function() {
+            $('body').delegate("img", "click", function(e) {
+                octopus.addKitten(e);
+            });
+
             catView.render();
         },
         render: function() {
