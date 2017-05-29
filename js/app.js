@@ -67,10 +67,5 @@ $(function() {
     }
 
 
-    var adminView = {
-
-    }
-
-
     octopus.init();
 })
